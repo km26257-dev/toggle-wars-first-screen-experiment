@@ -1,12 +1,32 @@
-# First Screen Blank vs. Sample Data — Flagsmith Experiment
+# First Screen Blank vs Sample Data Experiment
 
-Built for **Toggle Wars ([Track 1] Test Something Real)** to test whether showing sample data on a user's first screen increases `main_action_clicked` conversions compared to a blank first screen.
+Flagsmith project **56725** (`first screen blank vs sample data testing`), Development environment (`jKqRNoHNf4bJcXMhnWEoPt`).
 
-## How Flagsmith Is Used
-- **Experimentation & Multivariate Flag (`first_screen_mode`):** Evaluates users across `Control` (blank workspace with `Create First Item`) and `Variant_1` (sample templates with `Use Sample Workspace`), configured in Flagsmith Experiment `1118` (`100%` rollout, `50%` Control / `50%` Variant_1).
-- **Event Tracking:** Tracks exposure and `main_action_clicked` conversion events per user ID via Flagsmith.
+- **Feature flag:** `first_screen_mode` (`"blank"` vs `"sample data"`)
+- **Conversion event:** `main_action_clicked`
 
-## Setup & Run Locally
-1. Clone `https://github.com/km26257-dev/toggle-wars-first-screen-experiment.git`.
-2. Optional: install `flagsmith` (`pip install flagsmith`) and set `FLAGSMITH_ENVIRONMENT_KEY` in your environment.
-3. Run `python app.py` and open `http://127.0.0.1:8000/`.
+## Setup
+
+```bash
+pip install -r requirements.txt
+```
+
+## Run Unit Tests
+
+```bash
+python -m pytest
+```
+
+## Simulate Traffic
+
+```bash
+python first_screen_app.py simulate --users 40
+```
+
+## Launch Local HTML/JS Demo
+
+```bash
+python first_screen_app.py serve --port 8000
+```
+
+Then open `http://127.0.0.1:8000` in your browser to switch users, view the assigned first screen, and click the main action button to record `main_action_clicked`.
